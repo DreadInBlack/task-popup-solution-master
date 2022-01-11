@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Popups!</title>
+    <style>
+      html {
+        padding: 10px;
+      }
+
+      details.dialog summary::-webkit-details-marker {
+        display: none;
+      }
+      details.dialog summary {
+        list-style-type: none;
+      }
+
+      details.dialog[open] > summary:before {
+        content: " ";
+        background: rgba(0, 0, 0, 0.3);
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+
+      details.dialog > [role="document"] {
+        position: fixed;
+        margin: 10vh auto;
+        top: 0;
+
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        max-height: 80vh;
+        max-width: 90vw;
+      }
+
+      .login [role="document"] {
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <details class="dialog login">
+      <summary class="btn btn-primary">Test</summary>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Вход в систему</h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="email">Имя пользователя</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Введите email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Пароль</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Пароль"
+                />
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="rememberme"
+                />
+                <label class="form-check-label" for="rememberme"
+                  >Запомнить меня</label
+                >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Вход</button>
+          </div>
+        </div>
+      </div>
+    </details>
+  </body>
+</html>
